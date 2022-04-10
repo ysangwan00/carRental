@@ -71,7 +71,7 @@ public class dbmod {
       ResultSet rs3 = st3.executeQuery(push3);
 
       while (rs.next()) {
-        if (rs.getTimestamp("end").after(bookStart) && rs.getTimestamp("end").before(bookEnd) || rs.getTimestamp("start").after(bookStart) && rs.getTimestamp("start").before(bookEnd) || rs.getTimestamp("start").before(bookStart) && rs.getTimestamp("end").after(bookEnd) || rs.getTimestamp("start").after(bookStart) && rs.getTimestamp("end").before(bookEnd) || rs.getTimestamp("start") == bookStart && rs.getTimestamp("end") == bookEnd) {
+        if (rs.getTimestamp("end").after(bookStart) && rs.getTimestamp("end").before(bookEnd) || rs.getTimestamp("start").after(bookStart) && rs.getTimestamp("start").before(bookEnd) || rs.getTimestamp("start").before(bookStart) && rs.getTimestamp("end").after(bookEnd) || rs.getTimestamp("start").after(bookStart) && rs.getTimestamp("end").before(bookEnd) || rs.getTimestamp("start").equals(bookStart) && rs.getTimestamp("end").equals(bookEnd) {
           no.add(rs.getInt("carID"));
         } else {
           if (yes.contains(rs.getInt("carID")) == false)
